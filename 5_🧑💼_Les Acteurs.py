@@ -8,7 +8,6 @@ st.set_page_config(
 df  = pd.read_csv(r"datasets\actors_final_version(2).csv", sep = ",")
 ultimate = pd.read_csv(r"datasets\df_ultimate_2.csv", sep = ",")
 
-
 ultimate[['biography', 'place_of_birth']] = ultimate[['biography', 'place_of_birth']].fillna("unknown")
 ultimate = ultimate.dropna(subset = ['birthday'])
 #print(df.isna().sum()/ len(df))
@@ -32,9 +31,7 @@ with st.container():
      option = st.selectbox(
     "SAISISSEZ UN NOM D'ACTEUR 🎥",
       names)
-     
-
-     
+        
 ultimate_filter = ultimate[ultimate.primaryName == option].reset_index(drop = True)
           
 col1, col2 = st.columns([0.2,0.8])
@@ -57,8 +54,7 @@ with col2 :
                            :blue[{profession}]
 
                            - Biography : 
-                       
-                           
+                                                 
                            """, unsafe_allow_html=True) ##f6112c :
                with st.container():
                     st.markdown(f"{bio}")
