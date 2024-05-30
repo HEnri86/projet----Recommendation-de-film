@@ -1,6 +1,5 @@
 import streamlit as st
 st.markdown('## Bienvenue sur notre système de recommandation de films en partenariat avec le Cinéma Guerét ')
-
 st.markdown('')
 st.markdown('')
 st.markdown('')
@@ -16,6 +15,7 @@ with col2:
 col1, col2, col3= st.columns([0.25,0.3,0.35])
 with col2:
      st.image("images\Capture_d_écran_2024-05-15_150838-removebg-preview.png")
+     
 # Style CSS pour augmenter la taille du texte
 st.markdown("""
     <style>
