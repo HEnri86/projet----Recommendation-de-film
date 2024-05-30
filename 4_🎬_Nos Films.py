@@ -2,10 +2,9 @@ import streamlit as st
 import pandas as pd
 import base64
 
-
 st.title('Ici retrouvez vos films préférés, leur bande-annonce etc.')
 
-
+# definition de la coleur de fond de la page
 couleur_fond ='#F7F2D6'
 st.markdown(f"""
     <style>
@@ -15,11 +14,11 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-
+# la data frame utilisée
 link = "datasets\df_ultimate_2.csv"
 df_movies = pd.read_csv(link)
 
-   
+# création de la bare de recherche et du ménu déroulant
 with st.container():
    col1, col2, col3, col4, col5, col6, col7 = st.columns([0.25, 0.05, 0.05, 0.3, 0.05,0.05,0.25], gap="small")
 
@@ -38,7 +37,8 @@ with col2:
     st.image("images\wildprimevideo.png")
       
 st.write("--------------")    
-         
+
+# definition des conditions liées à la bare de recherche pour les données de la data frame
 if prompt1:
                     resultats = df_movies[df_movies['title_y'].str.contains(prompt1, case=False) ]
                     if len(resultats) == 0 :
@@ -99,13 +99,12 @@ if prompt1:
                                                         st.write("--------------")
                                                         st.write("Bande d'annonce")
                                                         st.video(row['lien_reco2'])
-                                                                                         
-                                            
+                                                                                                                                
                                                                     
                     else:
                        st.write("Désolé nous n'avons aucun résultat pour ces informations") 
 
-      
+# definition des conditions liées au ménu déroulant pour les données de la data frame      
 
 if option:
                     resultats = df_movies[df_movies['genres_y'].str.contains(option, case=False)]
